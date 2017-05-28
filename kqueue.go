@@ -54,9 +54,9 @@ func NewWatcher() (*Watcher, error) {
 		paths:           make(map[int]pathInfo),
 		fileExists:      make(map[string]bool),
 		externalWatches: make(map[string]bool),
-		Events:          make(chan Event,1),
-		Errors:          make(chan error,1),
-		done:            make(chan bool,1),
+		Events:          make(chan Event, 100),
+		Errors:          make(chan error, 100),
+		done:            make(chan bool, 100),
 	}
 
 	go w.readEvents()
